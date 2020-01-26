@@ -2,7 +2,7 @@
 
 ## Function definitions
 
-For function definitions, navigate to their folder and read the readme file.
+[smemset](smemset/README.md)
 
 ## For contributors
 

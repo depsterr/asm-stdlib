@@ -65,4 +65,3 @@ smemset8:
 		jg smemset8_loop
 
 	ret
-
