@@ -1,7 +1,5 @@
 # smemset
 
-***THIS FUNCTION IS CURRENTLY NOT FUNCTIONAL***
-
 ## smemset syntax
 
 There are 4 different smemset functions, for filling 1, 2, 4 or 8 bytes at a time.

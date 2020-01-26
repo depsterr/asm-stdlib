@@ -14,7 +14,7 @@ Leave comments, completely uncommented code will not get accepted. You don't hav
 
 All functions should be named s\<name of stdlib function\>\[additional info\], for example smemset and smemtest 8 for setting 8 bytes at a time.
 
-All function headers must use stdint for parameters that are not pointers.
+All function headers must use stdint for parameters that are not pointers. All pointers should be void\*, regardless of actual type.
 
 Each function should have it's own directory with it's own name containing a file called make.sh which will compile it into a binary file with the file extension `.o`. make.sh should never link any binaries.
 
