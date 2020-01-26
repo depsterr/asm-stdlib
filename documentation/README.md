@@ -2,7 +2,7 @@
 
 ## Function definitions
 
-For functions, look them up the right folder
+For function definitions, navigate to their folder and read the readme file.
 
 ## For contributors
 
