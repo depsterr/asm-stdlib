@@ -1,4 +1,6 @@
 #!/bin/sh
-ls libasm-stdlib.so >> /dev/null || sh make.sh
-gcc -L. -lasm-stdlib code/test/test.c -o code/test/test.out
-./code/test/test.out
+sh make.sh
+echo Compiling tests
+gcc tests/test.c -o tests/test.out -L. -lasm-stdlib
+echo Running tests
+LD_LIBRARY_PATH=$PWD ./tests/test.out
