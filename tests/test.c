@@ -1,14 +1,13 @@
 #include "../code/asm-stdlib.h"
 #include <stdio.h>
 
-#define MEMSETN 64
-
 #define ERRORCLR "\x1b[31m"
 #define WORKINGCLR "\x1b[32m"
 #define RESETCLR "\033[0m"
 
 char asmemsettest(){
-	puts("testing asmemset2");
+	puts("testing asmemset");
+	int MEMSETN = 90;
 	char testc0[MEMSETN];
 	char testc1[MEMSETN];
 	char testc2[MEMSETN];
@@ -38,6 +37,7 @@ char asmemsettest(){
 
 char asmemsettest2(){
 	puts("testing asmemset2");
+	int MEMSETN = 90;
 	char testc0[MEMSETN];
 	char testc1[MEMSETN];
 	char testc2[MEMSETN];
@@ -67,6 +67,7 @@ char asmemsettest2(){
 
 char asmemsettest4(){
 	puts("testing asmemset4");
+	int MEMSETN = 100;
 	char testc0[MEMSETN];
 	char testc1[MEMSETN];
 	char testc2[MEMSETN];
@@ -96,6 +97,7 @@ char asmemsettest4(){
 
 char asmemsettest8(){
 	puts("testing asmemeset8");
+	int MEMSETN = 80;
 	char testc0[MEMSETN];
 	char testc1[MEMSETN];
 	char testc2[MEMSETN];
