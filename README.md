@@ -13,4 +13,17 @@ sudo sh install.sh
 
 ## Usage
 
+Include the header
+
+```c
+#include <asm-stdlib.h>
+```
+
+Link the library
+```sh
+gcc foo.c -o foo -lasm-stdlib
+```
+
+## Documentation
+
 Look at the [documentation](./documentation/README.md)

@@ -1,4 +1,5 @@
 #!/bin/sh
+cd $(dirname $0)
 sh make.sh
 echo Compiling tests
 gcc tests/test.c -o tests/test.out -L. -lasm-stdlib
