@@ -17,4 +17,4 @@ smemset8(void* memstart, uint_64_t filler, uint_64_t amount);
 
 ## error hunting
 
-If the amount value is not evenly divisible by the size of the filler (in bytes) the function will never return. 
+If the amount value is not evenly divisible by the size of the filler (in bytes) the function will behave unexpectedly.
