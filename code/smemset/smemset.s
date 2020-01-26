@@ -29,10 +29,10 @@ smemset2:
 	; add the adress to the amount and then count downwards
 	add rdx, rdi
 	smemset2_loop:
-		mov [rdx], si
 		sub rdx, 2
+		mov [rdx], si
 		cmp rdx, rdi
-		jge smemset2_loop
+		jg smemset2_loop
 
 	ret
 
@@ -44,10 +44,10 @@ smemset4:
 	; add the adress to the amount and then count downwards
 	add rdx, rdi
 	smemset4_loop:
-		mov [rdx], esi
 		sub rdx, 4
+		mov [rdx], esi
 		cmp rdx, rdi
-		jge smemset4_loop
+		jg smemset4_loop
 
 	ret
 
@@ -59,10 +59,10 @@ smemset8:
 	; add the adress to the amount and then count downwards
 	add rdx, rdi
 	smemset8_loop:
-		mov [rdx], rsi
 		sub rdx, 8
+		mov [rdx], rsi
 		cmp rdx, rdi
-		jge smemset8_loop
+		jg smemset8_loop
 
 	ret
 
