@@ -8,16 +8,16 @@ BITS 64
 
 smemset:
 	; rdi, adress / startpoint
-	; rdx, amount / length / size
 	; rsi, char / fill
+	; rdx, amount / length / size
 
 	; add the adress to the amount and then count downwards
 	add rdx, rdi
 	smemset_loop:
-		mov [rdx], sil
 		dec rdx
+		mov [rdx], sil
 		cmp rdx, rdi
-		jne smemset_loop
+		jg smemset_loop
 
 	ret
 
