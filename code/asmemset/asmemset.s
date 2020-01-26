@@ -1,67 +1,67 @@
 BITS 64
 
-	global smemset:function
-	global smemset2:function
-	global smemset4:function
-	global smemset8:function
+	global asmemset:function
+	global asmemset2:function
+	global asmemset4:function
+	global asmemset8:function
 	section .text
 
-smemset:
+asmemset:
 	; rdi, adress / startpoint
 	; rsi, char / fill
 	; rdx, amount / length / size
 
 	; add the adress to the amount and then count downwards
 	add rdx, rdi
-	smemset_loop:
+	asmemset_loop:
 		dec rdx
 		mov [rdx], sil
 		cmp rdx, rdi
-		jg smemset_loop
+		jg asmemset_loop
 
 	ret
 
-smemset2:
+asmemset2:
 	; rdi, adress / startpoint
 	; rdx, amount / length / size
 	; rsi, char / fill
 
 	; add the adress to the amount and then count downwards
 	add rdx, rdi
-	smemset2_loop:
+	asmemset2_loop:
 		sub rdx, 2
 		mov [rdx], si
 		cmp rdx, rdi
-		jg smemset2_loop
+		jg asmemset2_loop
 
 	ret
 
-smemset4:
+asmemset4:
 	; rdi, adress / startpoint
 	; rdx, amount / length / size
 	; rsi, char / fill
 
 	; add the adress to the amount and then count downwards
 	add rdx, rdi
-	smemset4_loop:
+	asmemset4_loop:
 		sub rdx, 4
 		mov [rdx], esi
 		cmp rdx, rdi
-		jg smemset4_loop
+		jg asmemset4_loop
 
 	ret
 
-smemset8:
+asmemset8:
 	; rdi, adress / startpoint
 	; rdx, amount / length / size
 	; rsi, char / fill
 
 	; add the adress to the amount and then count downwards
 	add rdx, rdi
-	smemset8_loop:
+	asmemset8_loop:
 		sub rdx, 8
 		mov [rdx], rsi
 		cmp rdx, rdi
-		jg smemset8_loop
+		jg asmemset8_loop
 
 	ret
