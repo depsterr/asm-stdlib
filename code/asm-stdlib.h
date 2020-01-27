@@ -1,12 +1,19 @@
 #include <stdint.h>
 
-/* Make functions work in cpp */
+/* This ensures that cpp calls the functions according to the System V abi */
 
 #ifdef __cplusplus
 #define EXTERN extern "C"
 #else
 #define EXTERN extern
 #endif
+
+/* 
+ *
+ *		string
+ *
+ */
+
 
 /* asmemset */
 EXTERN void asmemset(void* memstart, uint8_t filler, uint64_t amount);
