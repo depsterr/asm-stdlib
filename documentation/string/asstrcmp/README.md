@@ -1,5 +1,9 @@
 # asstrcmp
 
+## purpose
+
+Returns 0 if two null terminated strings are equal.
+
 ## asstrcmp syntax
 
 There are 4 different asstrcmp functions, they compare different amount of data at a time. 

@@ -1,5 +1,6 @@
 #include "../code/asm-stdlib.h"
 #include <stdio.h>
+#include <string.h>
 
 #define ERRORCLR "\x1b[31m"
 #define WORKINGCLR "\x1b[32m"
@@ -289,6 +290,20 @@ char asstrcmptest8(){
 	return 1;
 }
 
+char asstrcattest(){
+	puts("testing asstrcat");
+	char destination[9] = "test";
+	char source[] = "test";
+	char destination2[9] = "test";
+	char source2[] = "test";
+	asstrcat(destination, source);
+	strcat(destination2, source2);
+	if(strcmp(destination, destination2)){
+		puts(ERRORCLR "\tasstrcat not copying correctly" RESETCLR);
+		return 0;
+	}
+	return 1;
+}
 void main(){
 	if(asmemsettest())
 		puts(WORKINGCLR "\tasmemset working" RESETCLR);
@@ -314,4 +329,6 @@ void main(){
 		puts(WORKINGCLR "\tasstrcmp4 working" RESETCLR);
 	if(asstrcmptest8())
 		puts(WORKINGCLR "\tasstrcmp8 working" RESETCLR);
+	if(asstrcattest())
+		puts(WORKINGCLR "\tasstrcat working" RESETCLR);
 }

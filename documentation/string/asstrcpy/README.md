@@ -1,5 +1,9 @@
 # asstrcpy
 
+## purpose
+
+Copies a string from a source to a destination.
+
 ## asstrcpy syntax
 
 There are 4 different asstrcpy functions, they copy different amount of data at a time. 

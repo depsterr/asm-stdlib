@@ -32,3 +32,6 @@ EXTERN uint8_t asstrcmp(void* firstaddr, void* secondaddr);
 EXTERN uint16_t asstrcmp2(void* firstaddr, void* secondaddr);
 EXTERN uint32_t asstrcmp4(void* firstaddr, void* secondaddr);
 EXTERN uint64_t asstrcmp8(void* firstaddr, void* secondaddr);
+
+/* asstrcat */
+EXTERN void asstrcat(void* destination, void* source);
