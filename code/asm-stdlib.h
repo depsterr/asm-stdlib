@@ -19,3 +19,9 @@ EXTERN void asstrcpy(void* destination, void* source);
 EXTERN void asstrcpy2(void* destination, void* source);
 EXTERN void asstrcpy4(void* destination, void* source);
 EXTERN void asstrcpy8(void* destination, void* source);
+
+/* asstrcmp */
+EXTERN uint8_t asstrcmp(void* firstaddr, void* secondaddr);
+EXTERN uint16_t asstrcmp2(void* firstaddr, void* secondaddr);
+EXTERN uint32_t asstrcmp4(void* firstaddr, void* secondaddr);
+EXTERN uint64_t asstrcmp8(void* firstaddr, void* secondaddr);

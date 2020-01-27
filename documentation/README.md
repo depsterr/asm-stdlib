@@ -2,9 +2,11 @@
 
 ## Function definitions
 
-[asmemset](asmemset/README.md)
+[asmemset](string/asmemset/README.md)
 
-[asstrcpy](asstrcpy/README.md)
+[asstrcpy](string/asstrcpy/README.md)
+
+[asstrcmp](string/asstrcmp/README.md)
 
 ## For contributors
 

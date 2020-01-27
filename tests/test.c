@@ -205,6 +205,90 @@ char asstrcpytest8(){
 	return 1;
 }
 
+char asstrcmptest(){
+	puts("testing asstrcmp");
+	char teststr1[] = "thisisalongteststringthatwillbecompared:)";
+	char teststr2[] = "thisisalongteststringthatwillbecompared:)";
+	char teststr3[] = "thisisalongteststringthatwill";
+	char teststr4[] = "thisisalongteststringthatwillbecompared:)))))";
+	if(asstrcmp(&teststr1, &teststr2)){
+		puts(ERRORCLR "\tasstrcmp not recognizing identical strings" RESETCLR);
+		return 0;
+	}
+	if(!asstrcmp(&teststr1, &teststr3)){
+		puts(ERRORCLR "\tasstrcmp not working with lower string" RESETCLR);
+		return 0;
+	}
+	if(!asstrcmp(&teststr1, &teststr4)){
+		puts(ERRORCLR "\tasstrcmp not working with higher string" RESETCLR);
+		return 0;
+	}
+	return 1;
+}
+
+char asstrcmptest2(){
+	puts("testing asstrcmp2");
+	char teststr1[12] = "testtesttes";
+	char teststr2[12] = "testtesttes";
+	char teststr3[8] = "rrrrrrr";
+	char teststr4[16] = "rrrrrrrrrrrrrrr";
+	if(asstrcmp2(&teststr1, &teststr2)){
+		puts(ERRORCLR "\tasstrcmp2 not recognizing identical strings" RESETCLR);
+		return 0;
+	}
+	if(!asstrcmp2(&teststr1, &teststr3)){
+		puts(ERRORCLR "\tasstrcmp2 not working with lower string" RESETCLR);
+		return 0;
+	}
+	if(!asstrcmp2(&teststr1, &teststr4)){
+		puts(ERRORCLR "\tasstrcmp2 not working with higher string" RESETCLR);
+		return 0;
+	}
+	return 1;
+}
+
+char asstrcmptest4(){
+	puts("testing asstrcmp4");
+	char teststr1[12] = "testtesttes";
+	char teststr2[12] = "testtesttes";
+	char teststr3[8]  = "rrrrrrr";
+	char teststr4[16] = "rrrrrrrrrrrrrrr";
+	if(asstrcmp4(&teststr1, &teststr2)){
+		puts(ERRORCLR "\tasstrcmp4 not recognizing identical strings" RESETCLR);
+		return 0;
+	}
+	if(!asstrcmp4(&teststr1, &teststr3)){
+		puts(ERRORCLR "\tasstrcmp4 not working with lower string" RESETCLR);
+		return 0;
+	}
+	if(!asstrcmp4(&teststr1, &teststr4)){
+		puts(ERRORCLR "\tasstrcmp4 not working with higher string" RESETCLR);
+		return 0;
+	}
+	return 1;
+}
+
+char asstrcmptest8(){
+	puts("testing asstrcmp8");
+	char teststr1[16] = "testtesttesttes";
+	char teststr2[16] = "testtesttesttes";
+	char teststr3[8]  = "rrrrrrr";
+	char teststr4[24] = "rrrrrrrrrrrrrrrrrrrrrrr";
+	if(asstrcmp8(&teststr1, &teststr2)){
+		puts(ERRORCLR "\tasstrcmp4 not recognizing identical strings" RESETCLR);
+		return 0;
+	}
+	if(!asstrcmp8(&teststr1, &teststr3)){
+		puts(ERRORCLR "\tasstrcmp4 not working with lower string" RESETCLR);
+		return 0;
+	}
+	if(!asstrcmp8(&teststr1, &teststr4)){
+		puts(ERRORCLR "\tasstrcmp4 not working with higher string" RESETCLR);
+		return 0;
+	}
+	return 1;
+}
+
 void main(){
 	if(asmemsettest())
 		puts(WORKINGCLR "\tasmemset working" RESETCLR);
@@ -222,4 +306,12 @@ void main(){
 		puts(WORKINGCLR "\tasstrcpy4 working" RESETCLR);
 	if(asstrcpytest8())
 		puts(WORKINGCLR "\tasstrcpy8 working" RESETCLR);
+	if(asstrcmptest())
+		puts(WORKINGCLR "\tasstrcmp working" RESETCLR);
+	if(asstrcmptest2())
+		puts(WORKINGCLR "\tasstrcmp2 working" RESETCLR);
+	if(asstrcmptest4())
+		puts(WORKINGCLR "\tasstrcmp4 working" RESETCLR);
+	if(asstrcmptest8())
+		puts(WORKINGCLR "\tasstrcmp8 working" RESETCLR);
 }
