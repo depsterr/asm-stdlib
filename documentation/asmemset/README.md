@@ -5,13 +5,13 @@
 There are 4 different asmemset functions, they fill different amounts of data. 
 
 ```c
-asmemset(void* memstart, uint8_t filler, uint_64_t amount);
+void asmemset(void* memstart, uint8_t filler, uint_64_t amount);
 
-asmemset2(void* memstart, uint16_t filler, uint_64_t amount);
+void asmemset2(void* memstart, uint16_t filler, uint_64_t amount);
 
-asmemset4(void* memstart, uint_32_t filler, uint_64_t amount);
+void asmemset4(void* memstart, uint_32_t filler, uint_64_t amount);
 
-asmemset8(void* memstart, uint_64_t filler, uint_64_t amount);
+void asmemset8(void* memstart, uint_64_t filler, uint_64_t amount);
 
 ```
 

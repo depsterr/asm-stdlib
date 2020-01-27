@@ -4,6 +4,8 @@
 
 [asmemset](asmemset/README.md)
 
+[asstrcpy](asstrcpy/README.md)
+
 ## For contributors
 
 You're more than welcome to contribute! Here are some things to consider and rules to follow:

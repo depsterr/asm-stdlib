@@ -4,7 +4,7 @@ BITS 64
 	global asmemset2:function
 	global asmemset4:function
 	global asmemset8:function
-	section .text
+section .text
 
 asmemset:
 	; rdi, adress / startpoint

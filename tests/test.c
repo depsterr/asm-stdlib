@@ -145,6 +145,66 @@ char asstrcpytest(){
 	return 1;
 }
 
+char asstrcpytest2(){
+	puts("testing asstrcpy2");
+	char teststr1[40] = "thisisalongteststringthatwillbecopeid:)";
+	char teststr2[40];
+	char overflow = 0x0;
+	asstrcpy2(&teststr2, &teststr1);
+	for(int n = 0; n < 4; n++){
+		if(teststr1[n] != teststr2[n]){
+			puts(ERRORCLR "\tstrcpy2 not copying" RESETCLR);
+			return 0;
+		}
+	}
+	if(overflow != 0x0){
+		puts(ERRORCLR "\tstrcpy2 overflowing" RESETCLR);
+		return 0;
+	}
+
+	return 1;
+}
+
+char asstrcpytest4(){
+	puts("testing asstrcpy4");
+	char teststr1[40] = "thisisalongteststringthatwillbecopeid:)";
+	char teststr2[40];
+	char overflow = 0x0;
+	asstrcpy4(&teststr2, &teststr1);
+	for(int n = 0; n < 4; n++){
+		if(teststr1[n] != teststr2[n]){
+			puts(ERRORCLR "\tstrcpy4 not copying" RESETCLR);
+			return 0;
+		}
+	}
+	if(overflow != 0x0){
+		puts(ERRORCLR "\tstrcpy4 overflowing" RESETCLR);
+		return 0;
+	}
+
+	return 1;
+}
+
+char asstrcpytest8(){
+	puts("testing asstrcpy8");
+	char teststr1[40] = "thisisalongteststringthatwillbecopeid:)";
+	char teststr2[40];
+	char overflow = 0x0;
+	asstrcpy2(&teststr2, &teststr1);
+	for(int n = 0; n < 4; n++){
+		if(teststr1[n] != teststr2[n]){
+			puts(ERRORCLR "\tstrcpy8 not copying" RESETCLR);
+			return 0;
+		}
+	}
+	if(overflow != 0x0){
+		puts(ERRORCLR "\tstrcpy8 overflowing" RESETCLR);
+		return 0;
+	}
+
+	return 1;
+}
+
 void main(){
 	if(asmemsettest())
 		puts(WORKINGCLR "\tasmemset working" RESETCLR);
@@ -156,4 +216,10 @@ void main(){
 		puts(WORKINGCLR "\tasmemset8 working" RESETCLR);
 	if(asstrcpytest())
 		puts(WORKINGCLR "\tasstrcpy working" RESETCLR);
+	if(asstrcpytest2())
+		puts(WORKINGCLR "\tasstrcpy2 working" RESETCLR);
+	if(asstrcpytest4())
+		puts(WORKINGCLR "\tasstrcpy4 working" RESETCLR);
+	if(asstrcpytest8())
+		puts(WORKINGCLR "\tasstrcpy8 working" RESETCLR);
 }
