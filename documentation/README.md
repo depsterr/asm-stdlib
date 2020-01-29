@@ -20,7 +20,7 @@ All functions should be named as\<name of stdlib function\>\[additional info\], 
 
 All function headers must use stdint for parameters that are not pointers. All pointers should be void\*, regardless of actual type.
 
-Each function should have it's own directory with it's own name containing a file called make.sh which will compile it into a binary file with the file extension `.o`. make.sh should never link any binaries.
+Each function should have it's own directory named after the function and containing all the necessary .s files
 
 ### Resources
 

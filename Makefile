@@ -1,7 +1,8 @@
 LIBRARYNAME=asm-stdlib
 
 OUTFILE=lib$(LIBRARYNAME).so
-TESTIN=test/test.c
+
+TESTFILE=test/test.c
 TESTOUT=test/test.out
 
 LINKER=ld
@@ -10,11 +11,19 @@ CC=c99
 ASM_FILES=$(shell find code/ -type f -name '*.s')
 O_FILES=$(shell find code/ -type f -name '*.s' | sed 's/\.s/\.o/g')
 
-default: $(O_FILES)
-	$(LINKER) -shared $(O_FILES) -o $(OUTFILE)
+default: $(OUTFILE)
+	make clean
+
+noclean: $(OUTFILE)
 
 %.o: %.s
 	nasm -f elf64 $< -o $@
+
+$(OUTFILE): $(O_FILES)
+	$(LINKER) -shared $(O_FILES) -o $(OUTFILE)
+
+$(TESTFILE):
+	$(CC) $(TESTFILE) -o $(TESTOUT) -L. -l$(LIBRARYNAME) 
 
 install:
 	make default
@@ -23,8 +32,5 @@ install:
 clean:
 	rm $(O_FILES)
 
-.PHONY: test
-test:
-	make default
-	$(CC) $(TESTIN) -o $(TESTOUT) -L. -l$(LIBRARYNAME) 
+test: $(OUTFILE) $(TESTFILE)
 	LD_LIBRARY_PATH=$(shell pwd) ./test/test.out

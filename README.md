@@ -8,7 +8,7 @@ To install just run these commands
 ```
 git clone https://github.com/depsterr/asm-stdlib.git
 cd asm-stdlib
-sudo sh install.sh
+sudo make install
 ```
 
 ## Usage
@@ -26,4 +26,8 @@ gcc foo.c -o foo -lasm-stdlib
 
 ## Documentation
 
-Look at the [documentation](./documentation/README.md)
+Look at the [documentation](documentation/README.md)
+
+## What is this?
+
+This is a fun little project I started because I was bored, while I do intend on making it into a fully functional libc, it's not a overly serious project or anything. 
