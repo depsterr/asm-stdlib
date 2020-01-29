@@ -2,13 +2,17 @@
 
 ## Function definitions
 
-[asmemset](string/asmemset/README.md)
+* string
 
-[asstrcpy](string/asstrcpy/README.md)
+	* [asmemset](string/asmemset/README.md)
 
-[asstrcmp](string/asstrcmp/README.md)
+	* [asstrcpy](string/asstrcpy/README.md)
 
-[asstrcat](string/asstrcat/README.md)
+	* [asstrcmp](string/asstrcmp/README.md)
+
+	* [asstrcat](string/asstrcat/README.md)
+
+	* [asstrlen](string/asstrlen/README.md)
 
 ## For contributors
 
