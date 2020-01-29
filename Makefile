@@ -10,6 +10,7 @@ LIBRARYNAME=asm-stdlib
 
 LINKER=ld
 CC=c99
+ASM=nasm
 
 #
 # Folders 
@@ -30,16 +31,18 @@ LIBDIR=/usr/lib
 TESTFILE=test/test.c
 TESTOUT=test/test.out
 
-# Things you should only change if changing the rest of the makefile
-ASM_FILES=$(shell find code/ -type f -name '*.s')
-O_FILES=$(shell find code/ -type f -name '*.s' | sed 's/\.s/\.o/g')
+#
+# Input and binary files
+#
+ASM_FILES=$(shell find code -type f -name '*.s')
+O_FILES=$(shell find code -type f -name '*.s' | sed 's/\.s/\.o/g')
 
 default: $(OUTFILE) clean
 
 noclean: $(OUTFILE)
 
 %.o: %.s
-	nasm -f elf64 $< -o $@
+	$(ASM) -f elf64 $< -o $@
 
 $(OUTFILE): $(O_FILES)
 	$(LINKER) -shared $< -o $@
