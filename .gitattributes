@@ -1,1 +1,3 @@
-test/* linguist-vendored
+test/* linguist-detectable=false
+documentation/* linguist-documentation
+*.h linguist-language=c
