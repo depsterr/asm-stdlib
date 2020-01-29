@@ -15,7 +15,7 @@ asstrcmp:
 	; run till end of string or till they are not similair
 	asstrcmp_loop:
 		mov al, byte [rsi]
-		cmp	byte [rdi], al
+		sub	al, byte [rdi]
 		jne	asstrcmp_ret
 		cmp	byte [rdi], 0x0
 		je	asstrcmp_ret
@@ -23,9 +23,7 @@ asstrcmp:
 		inc rsi
 		jmp asstrcmp_loop
 
-	; will make the return value 0 if they are equal
 	asstrcmp_ret:
-	xor al, byte [rdi]
 
 	ret
 
@@ -38,7 +36,7 @@ asstrcmp2:
 	; run till end of string or till they are not similair
 	asstrcmp2_loop:
 		mov ax, word [rsi]
-		cmp	word [rdi], ax
+		sub	ax, word [rdi]
 		jne	asstrcmp2_ret
 		cmp	byte [rdi + 1], 0x0
 		je	asstrcmp2_ret
@@ -46,9 +44,7 @@ asstrcmp2:
 		add rsi, 2
 		jmp asstrcmp2_loop
 
-	; will make the return value 0 if they are equal
 	asstrcmp2_ret:
-	xor ax, word [rdi]
 
 	ret
 
@@ -59,7 +55,8 @@ asstrcmp4:
 	; run till end of string or till they are not similair
 	asstrcmp4_loop:
 		mov eax, dword [rsi]
-		cmp	dword [rdi], eax
+		sub	eax, dword [rdi]
+		jne	asstrcmp4_ret
 		cmp	byte [rdi + 3], 0x0
 		je	asstrcmp4_ret
 		add rdi, 4
@@ -68,7 +65,6 @@ asstrcmp4:
 
 	; will make the return value 0 if they are equal
 	asstrcmp4_ret:
-	xor eax, dword [rdi]
 
 	ret
 
@@ -79,7 +75,7 @@ asstrcmp8:
 	; run till end of string or till they are not similair
 	asstrcmp8_loop:
 		mov rax, qword [rsi]
-		cmp	qword [rdi], rax
+		sub	rax, qword [rdi]
 		jne	asstrcmp8_ret
 		cmp	byte [rdi + 7], 0x0
 		je	asstrcmp8_ret
@@ -89,6 +85,5 @@ asstrcmp8:
 
 	; will make the return value 0 if they are equal
 	asstrcmp8_ret:
-	xor rax, qword [rdi]
 
 	ret
