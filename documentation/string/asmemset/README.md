@@ -4,7 +4,7 @@
 
 Fills a section of memory with a value
 
-## smemset syntax
+## asmemset syntax
 
 There are 4 different asmemset functions, they fill different amounts of data. 
 
