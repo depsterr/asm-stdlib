@@ -2,7 +2,7 @@
 
 ## purpose
 
-Compare strings null terminated strings by returning difference of the last comparison
+Compare null terminated strings by returning the difference of the last comparison
 
 ## asstrcmp syntax
 

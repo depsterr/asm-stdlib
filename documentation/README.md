@@ -8,6 +8,8 @@
 
 [asstrcmp](string/asstrcmp/README.md)
 
+[asstrcat](string/asstrcat/README.md)
+
 ## For contributors
 
 You're more than welcome to contribute! Here are some things to consider and rules to follow:
