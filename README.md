@@ -1,9 +1,9 @@
 # asm-stdlib
-Recreating (some of) the C standard library rewritten in nasm assembler
+Recreating (some of) the C standard library in nasm assembler
 
 ## Installation
 
-To install just run these commands
+To install run the following commands:
 
 ```
 git clone https://github.com/depsterr/asm-stdlib.git
