@@ -42,10 +42,10 @@ noclean: $(OUTFILE)
 	nasm -f elf64 $< -o $@
 
 $(OUTFILE): $(O_FILES)
-	$(LINKER) -shared $(O_FILES) -o $(OUTFILE)
+	$(LINKER) -shared $< -o $@
 
-$(TESTFILE):
-	$(CC) $(TESTFILE) -o $(TESTOUT) -L$(OUTDIR) -l$(LIBRARYNAME) 
+$(TESTOUT): $(TESTFILE)
+	$(CC) $< -o $@ -L$(OUTDIR) -l$(LIBRARYNAME) 
 
 install:
 	make default
@@ -54,5 +54,5 @@ install:
 clean:
 	rm $(O_FILES)
 
-test: $(OUTFILE) $(TESTFILE)
+test: $(OUTFILE) $(TESTOUT)
 	LD_LIBRARY_PATH=$(shell realpath $(OUTDIR)) $(TESTOUT)
