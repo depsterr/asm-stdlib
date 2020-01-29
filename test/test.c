@@ -1,6 +1,7 @@
 #include "../code/asm-stdlib.h"
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 #define ERRORCLR "\x1b[31m"
 #define WORKINGCLR "\x1b[32m"
@@ -331,4 +332,5 @@ void main(){
 		puts(WORKINGCLR "\tasstrcmp8 working" RESETCLR);
 	if(asstrcattest())
 		puts(WORKINGCLR "\tasstrcat working" RESETCLR);
+	exit(0);
 }
