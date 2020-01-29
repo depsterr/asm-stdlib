@@ -10,7 +10,7 @@ asstrcpy:
 	; rdi, destination adress
 	; rsi, source adress
 
-	; add the adress to the amount and then count downwards
+	; move byte from rsi to rdi till rsi is 0x0
 	asstrcpy_loop:
 		mov al, byte [rsi]
 		mov [rdi], al
@@ -19,16 +19,12 @@ asstrcpy:
 		cmp byte [rsi], 0x0
 		jne asstrcpy_loop
 
-	mov al, byte [rsi]
-	mov [rdi], al
+	mov byte [rdi], 0x0 ; we hit 0x0 so we're gonna put that one in
 
 	ret
 
 asstrcpy2:
-	; rdi, destination adress
-	; rsi, source adress
 
-	; add the adress to the amount and then count downwards
 	asstrcpy2_loop:
 		mov ax, word [rsi]
 		mov [rdi], ax
@@ -37,16 +33,12 @@ asstrcpy2:
 		cmp byte [rsi], 0x0
 		jne asstrcpy2_loop
 
-	mov al, byte [rsi]
-	mov [rdi], al
+	mov byte [rdi], 0x0
 
 	ret
 
 asstrcpy4:
-	; rdi, destination adress
-	; rsi, source adress
 
-	; add the adress to the amount and then count downwards
 	asstrcpy4_loop:
 		mov eax, dword [rsi]
 		mov [rdi], eax
@@ -55,16 +47,12 @@ asstrcpy4:
 		cmp byte [rsi], 0x0
 		jne asstrcpy4_loop
 
-	mov al, byte [rsi]
-	mov [rdi], al
+	mov byte [rdi], 0x0
 
 	ret
 
 asstrcpy8:
-	; rdi, destination adress
-	; rsi, source adress
 
-	; add the adress to the amount and then count downwards
 	asstrcpy8_loop:
 		mov rax, qword [rsi]
 		mov [rdi], rax
@@ -73,7 +61,6 @@ asstrcpy8:
 		cmp byte [rsi], 0x0
 		jne asstrcpy8_loop
 
-	mov al, byte [rsi]
-	mov [rdi], al
+	mov byte [rdi], 0x0
 
 	ret

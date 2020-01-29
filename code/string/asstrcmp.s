@@ -10,14 +10,12 @@ asstrcmp:
 	; rdi, first adress
 	; rsi, second adress
 
-	xor eax, eax
-
 	; run till end of string or till they are not similair
 	asstrcmp_loop:
-		mov al, byte [rsi]
-		sub	al, byte [rdi]
-		jne	asstrcmp_ret
-		cmp	byte [rdi], 0x0
+		mov al, byte [rsi]	; move the byte from rsi into al
+		sub	al, byte [rdi]	; use sub instead of cmp since we want to store this as the return value 
+		jne	asstrcmp_ret	; if not equal we return the difference
+		cmp	byte [rdi], 0x0	; if we hit the end of one of the string we return, if they were the same al will still be 0, otherwise it will be the difference
 		je	asstrcmp_ret
 		inc rdi
 		inc rsi
@@ -28,12 +26,7 @@ asstrcmp:
 	ret
 
 asstrcmp2:
-	; rdi, first adress
-	; rsi, second adress
 
-	xor eax, eax
-
-	; run till end of string or till they are not similair
 	asstrcmp2_loop:
 		mov ax, word [rsi]
 		sub	ax, word [rdi]
@@ -49,10 +42,7 @@ asstrcmp2:
 	ret
 
 asstrcmp4:
-	; rdi, first adress
-	; rsi, second adress
 
-	; run till end of string or till they are not similair
 	asstrcmp4_loop:
 		mov eax, dword [rsi]
 		sub	eax, dword [rdi]
@@ -63,16 +53,12 @@ asstrcmp4:
 		add rsi, 4
 		jmp asstrcmp4_loop
 
-	; will make the return value 0 if they are equal
 	asstrcmp4_ret:
 
 	ret
 
 asstrcmp8:
-	; rdi, first adress
-	; rsi, second adress
 
-	; run till end of string or till they are not similair
 	asstrcmp8_loop:
 		mov rax, qword [rsi]
 		sub	rax, qword [rdi]
@@ -83,7 +69,6 @@ asstrcmp8:
 		add rsi, 8
 		jmp asstrcmp8_loop
 
-	; will make the return value 0 if they are equal
 	asstrcmp8_ret:
 
 	ret

@@ -35,3 +35,6 @@ EXTERN uint64_t asstrcmp8(char* firstaddr, char* secondaddr);
 
 /* asstrcat */
 EXTERN void asstrcat(char* destination, char* source);
+
+/* asstrlen */
+EXTERN uint64_t asstrlen(char* inputstr);

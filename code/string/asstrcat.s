@@ -7,13 +7,13 @@ asstrcat:
 	; rdi, destination adress
 	; rsi, source adress
 
-	; move rdi to the end of the string
+	; move rdi to the end of the destination string
 	asstrcat_loop:
 		inc rdi
 		cmp byte [rdi], 0x0
 		jne asstrcat_loop
 
-	; strcpy
+	; strcpy from source to destination
 	asstrcat_cp_loop:
 		mov al, byte [rsi]
 		mov [rdi], al

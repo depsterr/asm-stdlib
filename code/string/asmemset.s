@@ -29,15 +29,18 @@ asmemset:
 	sal rcx, 32
 	or  rsi, rcx
 
+	; count downwards 8 bytes at a time
 	asmemset_loop:
 		sub rdx, 8
 		mov [rdx], rsi
-		cmp rdx, rax			; if rdx is less than 8 away then continue
+		cmp rdx, rax			; if rdx isn't less than 8 away then continue
 		jge asmemset_loop
 
 	asmemset_finalize:
-	cmp rdx, rdi
-	je asmemset_ret
+	cmp rdx, rdi				; we might be done here, if so, just return
+	jne asmemset_finalize_loop
+
+	ret
 
 	asmemset_finalize_loop:
 		dec rdx
@@ -45,19 +48,14 @@ asmemset:
 		cmp rdx, rdi
 		jg asmemset_finalize_loop
 
-	asmemset_ret:
-
 	ret
 
 asmemset2:
-	; rdi, adress / startpoint
-	; rsi, char / fill
-	; rdx, amount / length / size
 
 	mov rax, rdi
-	add rax, 8		; rax is addr 8 after start of addr
-	add rdx, rdi	; rdx is the end of mem
-	cmp rdx, rax	; if rdx is less than 8 away then jump
+	add rax, 8
+	add rdx, rdi
+	cmp rdx, rax
 	jl asmemset2_finalize
 
 	xor rcx, rcx
@@ -71,12 +69,14 @@ asmemset2:
 	asmemset2_loop:
 		sub rdx, 8
 		mov [rdx], rsi
-		cmp rdx, rax			; if rdx is less than 8 away then continue
+		cmp rdx, rax
 		jge asmemset2_loop
 
 	asmemset2_finalize:
 	cmp rdx, rdi
-	je asmemset_ret
+	jne asmemset2_finalize_loop
+
+	ret
 
 	asmemset2_finalize_loop:
 		sub rdx, 2
@@ -84,19 +84,14 @@ asmemset2:
 		cmp rdx, rdi
 		jg asmemset2_finalize_loop
 
-	asmemset2_ret:
-
 	ret
 
 asmemset4:
-	; rdi, adress / startpoint
-	; rsi, char / fill
-	; rdx, amount / length / size
 
 	mov rax, rdi
-	add rax, 8		; rax is addr 8 after start of addr
-	add rdx, rdi	; rdx is the end of mem
-	cmp rdx, rax	; if rdx is less than 8 away then jump
+	add rax, 8
+	add rdx, rdi
+	cmp rdx, rax
 	jl asmemset4_finalize
 
 	xor rcx, rcx
@@ -107,12 +102,14 @@ asmemset4:
 	asmemset4_loop:
 		sub rdx, 8
 		mov [rdx], rsi
-		cmp rdx, rax			; if rdx is less than 8 away then continue
+		cmp rdx, rax
 		jge asmemset4_loop
 
 	asmemset4_finalize:
 	cmp rdx, rdi
-	je asmemset_ret
+	jne asmemset4_finalize_loop
+
+	ret
 
 	asmemset4_finalize_loop:
 		sub rdx, 4
@@ -120,16 +117,10 @@ asmemset4:
 		cmp rdx, rdi
 		jg asmemset4_finalize_loop
 
-	asmemset4_ret:
-
 	ret
 
 asmemset8:
-	; rdi, adress / startpoint
-	; rdx, amount / length / size
-	; rsi, char / fill
 
-	; add the adress to the amount and then count downwards
 	add rdx, rdi
 	asmemset8_loop:
 		sub rdx, 8

@@ -34,28 +34,34 @@ TESTOUT=test/test.out
 #
 # Input and binary files
 #
+
 ASM_FILES=$(shell find code -type f -name '*.s')
 O_FILES=$(shell find code -type f -name '*.s' | sed 's/\.s/\.o/g')
 
-default: $(OUTFILE) clean
+#
+# Make targets for the user
+#
 
-noclean: $(OUTFILE)
+default: $(OUTFILE) 
+
+install: $(OUTFILE)
+	cp code/asm-stdlib.h $(INCLUDEDIR) -f && cp $(OUTFILE) $(LIBDIR) -f
+
+test: $(OUTFILE) $(TESTOUT)
+	LD_LIBRARY_PATH=$(shell realpath $(OUTDIR)) $(TESTOUT)
+
+clean:
+	rm $(O_FILES)
+
+#
+# Make targets for make
+#
 
 %.o: %.s
 	$(ASM) -f elf64 $< -o $@
 
 $(OUTFILE): $(O_FILES)
-	$(LINKER) -shared $< -o $@
+	$(LINKER) -shared $^ -o $@ 
 
 $(TESTOUT): $(TESTFILE)
 	$(CC) $< -o $@ -L$(OUTDIR) -l$(LIBRARYNAME) 
-
-install:
-	make default
-	cp code/*.h $(INCLUDEDIR) && cp $(OUTFILE) $(LIBDIR)
-
-clean:
-	rm $(O_FILES)
-
-test: $(OUTFILE) $(TESTOUT)
-	LD_LIBRARY_PATH=$(shell realpath $(OUTDIR)) $(TESTOUT)

@@ -305,6 +305,20 @@ char asstrcattest(){
 	}
 	return 1;
 }
+
+char asstrlentest(){
+	puts("testing asstrlen");
+	char test[] = "test";
+	if(asstrlen(test) != 4){
+		puts(ERRORCLR "\tasstrlen not working" RESETCLR);
+		return 0;
+	}
+	if(asstrlen("test") != 4){
+		puts(ERRORCLR "\tasstrlen not working" RESETCLR);
+		return 0;
+	}
+}
+
 void main(){
 	if(asmemsettest())
 		puts(WORKINGCLR "\tasmemset working" RESETCLR);
@@ -332,5 +346,7 @@ void main(){
 		puts(WORKINGCLR "\tasstrcmp8 working" RESETCLR);
 	if(asstrcattest())
 		puts(WORKINGCLR "\tasstrcat working" RESETCLR);
+	if(asstrlentest())
+		puts(WORKINGCLR "\tasstrlen working" RESETCLR);
 	exit(0);
 }
