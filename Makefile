@@ -1,18 +1,40 @@
+#
+# Name to use for library
+#
+
 LIBRARYNAME=asm-stdlib
 
-OUTFILE=lib$(LIBRARYNAME).so
-
-TESTFILE=test/test.c
-TESTOUT=test/test.out
+#
+# Programs to use
+#
 
 LINKER=ld
 CC=c99
 
+#
+# Folders 
+#
+
+# Make
+OUTDIR=.
+OUTFILE=$(OUTDIR)/lib$(LIBRARYNAME).so
+
+# Install
+INCLUDEDIR=/usr/include
+LIBDIR=/usr/lib
+
+#
+# Testfiles
+#
+
+TESTFILE=test/test.c
+TESTOUT=test/test.out
+
+# Things you should only change if changing the rest of the makefile
 ASM_FILES=$(shell find code/ -type f -name '*.s')
 O_FILES=$(shell find code/ -type f -name '*.s' | sed 's/\.s/\.o/g')
 
-default: $(OUTFILE)
-	make clean
+default: $(OUTFILE) clean
 
 noclean: $(OUTFILE)
 
@@ -23,14 +45,14 @@ $(OUTFILE): $(O_FILES)
 	$(LINKER) -shared $(O_FILES) -o $(OUTFILE)
 
 $(TESTFILE):
-	$(CC) $(TESTFILE) -o $(TESTOUT) -L. -l$(LIBRARYNAME) 
+	$(CC) $(TESTFILE) -o $(TESTOUT) -L$(OUTDIR) -l$(LIBRARYNAME) 
 
 install:
 	make default
-	cp code/*.h /usr/include && cp *.so /usr/lib
+	cp code/*.h $(INCLUDEDIR) && cp $(OUTFILE) $(LIBDIR)
 
 clean:
 	rm $(O_FILES)
 
 test: $(OUTFILE) $(TESTFILE)
-	LD_LIBRARY_PATH=$(shell pwd) ./test/test.out
+	LD_LIBRARY_PATH=$(shell realpath $(OUTDIR)) $(TESTOUT)

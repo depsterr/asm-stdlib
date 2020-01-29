@@ -22,16 +22,16 @@ EXTERN void asmemset4(void* memstart, uint32_t filler, uint64_t amount);
 EXTERN void asmemset8(void* memstart, uint64_t filler, uint64_t amount);
 
 /* asstrcpy */
-EXTERN void asstrcpy(void* destination, void* source);
-EXTERN void asstrcpy2(void* destination, void* source);
-EXTERN void asstrcpy4(void* destination, void* source);
-EXTERN void asstrcpy8(void* destination, void* source);
+EXTERN void asstrcpy(char* destination, char* source);
+EXTERN void asstrcpy2(char* destination, char* source);
+EXTERN void asstrcpy4(char* destination, char* source);
+EXTERN void asstrcpy8(char* destination, char* source);
 
 /* asstrcmp */
-EXTERN uint8_t asstrcmp(void* firstaddr, void* secondaddr);
-EXTERN uint16_t asstrcmp2(void* firstaddr, void* secondaddr);
-EXTERN uint32_t asstrcmp4(void* firstaddr, void* secondaddr);
-EXTERN uint64_t asstrcmp8(void* firstaddr, void* secondaddr);
+EXTERN uint8_t asstrcmp(char* firstaddr, char* secondaddr);
+EXTERN uint16_t asstrcmp2(char* firstaddr, char* secondaddr);
+EXTERN uint32_t asstrcmp4(char* firstaddr, char* secondaddr);
+EXTERN uint64_t asstrcmp8(char* firstaddr, char* secondaddr);
 
 /* asstrcat */
-EXTERN void asstrcat(void* destination, void* source);
+EXTERN void asstrcat(char* destination, char* source);

@@ -18,7 +18,7 @@ Leave comments, completely uncommented code will not get accepted. You don't hav
 
 All functions should be named `as<name of stdlib function>[additional info]`, for example asmemset and asmemtest 8 for setting 8 bytes at a time.
 
-All function headers must use stdint for parameters that are not pointers. All pointers should be void\*, regardless of actual type.
+All function headers must use stdint for parameters that are not pointers.
 
 Each function should have it's own directory named after the function and containing all the necessary .s files
 
