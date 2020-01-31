@@ -8,9 +8,8 @@ newline: db 0x0a
 asputs:
 	; rdi, string addr
 
-	; rdx will be return
-	mov rdx, rdi ; rdx is string len
-	mov rsi, rdi ; rsi is string base
+	mov rdx, rdi	; rdx is string len
+	mov rsi, rdi	; rsi is string addr
 
 	; increase rdx till at the null byte
 	asputs_loop:
@@ -21,12 +20,14 @@ asputs:
 	; remove adress to get length instead of addr
 	sub rdx, rdi
 
-	mov rax, 1 ; sys_write
-	mov rdi, 1 ; stdoutput
-	syscall
+	mov rax, 1	; sys_write
+	mov rdi, 1	; stdoutput
+	;	rsi, string addr
+	;	rdx, string len
+	syscall	
 
-	mov rax, 1 ; sys_write
-	mov rdi, 1 ; stdoutput
+	mov rax, 1	; sys_write
+	mov rdi, 1	; stdoutput
 	mov rsi, newline
 	mov rdx, 1
 	syscall

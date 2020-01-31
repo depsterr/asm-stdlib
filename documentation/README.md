@@ -14,6 +14,10 @@
 
 	* [asstrlen](string/asstrlen/README.md)
 
+* stdio
+
+	* [asputs](stdio/puts/README.md)
+
 ## For contributors
 
 You're more than welcome to contribute! Here are some things to consider and rules to follow:
