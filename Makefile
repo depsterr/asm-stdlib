@@ -51,7 +51,7 @@ test: $(OUTFILE) $(TESTOUT)
 	LD_LIBRARY_PATH=$(shell realpath $(OUTDIR)) $(TESTOUT)
 
 clean:
-	rm $(O_FILES)
+	rm $(O_FILES) $(TESTOUT)
 
 #
 # Make targets for make
