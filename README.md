@@ -1,5 +1,5 @@
 # asm-stdlib
-Recreating (some of) the C standard library in nasm assembler
+Recreating (some of) the C standard library for linux in x64 nasm assembler
 
 ## Installation
 

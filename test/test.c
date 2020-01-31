@@ -348,5 +348,7 @@ void main(){
 		puts(WORKINGCLR "\tasstrcat working" RESETCLR);
 	if(asstrlentest())
 		puts(WORKINGCLR "\tasstrlen working" RESETCLR);
+	puts("testing asputs");
+	asputs(WORKINGCLR "\tasputs working" RESETCLR);
 	exit(0);
 }
