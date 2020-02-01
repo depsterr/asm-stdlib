@@ -37,6 +37,7 @@ TESTOUT=test/test.out
 
 ASM_FILES=$(shell find code -type f -name '*.s')
 O_FILES=$(shell find code -type f -name '*.s' | sed 's/\.s/\.o/g')
+H_FILES=code/*.h
 
 #
 # Make targets for the user
@@ -45,7 +46,7 @@ O_FILES=$(shell find code -type f -name '*.s' | sed 's/\.s/\.o/g')
 default: $(OUTFILE) 
 
 install: $(OUTFILE)
-	cp code/asm-stdlib.h $(INCLUDEDIR) -f && cp $(OUTFILE) $(LIBDIR) -f
+	cp $(H_FILES) $(INCLUDEDIR) -f && cp $(OUTFILE) $(LIBDIR) -f
 
 test: $(OUTFILE) $(TESTOUT)
 	LD_LIBRARY_PATH=$(shell realpath $(OUTDIR)) $(TESTOUT)

@@ -38,6 +38,3 @@ EXTERN void asstrcat(char* destination, char* source);
 
 /* asstrlen */
 EXTERN uint64_t asstrlen(char* inputstr);
-
-/* asputs */
-EXTERN void asputs(const char* inputstr);

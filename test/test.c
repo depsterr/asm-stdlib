@@ -1,4 +1,5 @@
-#include "../code/asm-stdlib.h"
+#include "../code/asstring.h"
+#include "../code/asstdio.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
