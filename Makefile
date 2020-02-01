@@ -32,10 +32,9 @@ TESTFILE=test/test.c
 TESTOUT=test/test.out
 
 #
-# Input and binary files
+# Binary files and headers
 #
 
-ASM_FILES=$(shell find code -type f -name '*.s')
 O_FILES=$(shell find code -type f -name '*.s' | sed 's/\.s/\.o/g')
 H_FILES=code/*.h
 
