@@ -30,4 +30,4 @@ Look at the [documentation](documentation/README.md)
 
 ## What is this?
 
-This is a fun little project I started because I was bored, while I do intend on making it into a fully functional libc, it's not a overly serious project or anything. 
+This is a fun little project I started because I was bored, while I entiertain the notion of making it into a full libc, it's not a overly serious project or anything. 
